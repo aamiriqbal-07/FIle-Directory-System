@@ -1,0 +1,7 @@
+# Ignore unnecessary files
+node_modules
+__pycache__
+dist
+*.pyc
+*.pyo
+.env
