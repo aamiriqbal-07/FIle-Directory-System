@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .file-directory {
+    max-width: 1000px; /* Increase width to make it more spacious */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumbs {
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumbs span {
+    cursor: pointer;
+    color: #0a84ff;
+  }
+  
+  .breadcrumbs span:hover {
+    text-decoration: underline;
+  }
+  
+  .create-button,
+  .back-button {
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #0a84ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-button:hover,
+  .back-button:hover {
+    background-color: #005bb5;
+  }
+  
+  .contents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increase gap between items */
+    justify-content: center;
+  }
+  
+  .file-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increase gap between icons and name */
+    background: #2e2e2e;
+    padding: 15px; /* Add padding for more spacing */
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 250px; /* Set width for consistency */
+    margin: 10px; /* Add margin for spacing between items */
+  }
+  
+  .file-item .file-name {
+    flex-grow: 1;
+    font-size: 1.2rem; /* Increase font size for better readability */
+  }
+  
+  .icon {
+    cursor: pointer;
+    font-size: 1.5rem; /* Increase icon size */
+  }
+  
+  .folder-icon {
+    color: #ffa500;
+  }
+  
+  .file-icon {
+    color: #0a84ff;
+  }
+  
+  .edit-icon {
+    color: #4caf50;
+  }
+  
+  .delete-icon {
+    color: #f44336;
+  }
+  
+  .icon:hover {
+    opacity: 0.8;
+  }
+  
