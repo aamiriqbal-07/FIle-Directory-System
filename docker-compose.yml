@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=file_directory
+    ports:
+      - "3307:3306"  # Changed to use port 3307 on host
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fastapi_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:12345@db/file_directory
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vite_frontend  
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+    driver: local
