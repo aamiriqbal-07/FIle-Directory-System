@@ -1,98 +1,110 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  .file-directory {
-    max-width: 1000px; /* Increase width to make it more spacious */
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .breadcrumbs {
-    margin-bottom: 20px;
-  }
-  
-  .breadcrumbs span {
-    cursor: pointer;
-    color: #0a84ff;
-  }
-  
-  .breadcrumbs span:hover {
-    text-decoration: underline;
-  }
-  
-  .create-button,
-  .back-button {
-    padding: 12px 24px;
-    margin: 10px;
-    background-color: #0a84ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .create-button:hover,
-  .back-button:hover {
-    background-color: #005bb5;
-  }
-  
-  .contents {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Increase gap between items */
-    justify-content: center;
-  }
-  
-  .file-item {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Increase gap between icons and name */
-    background: #2e2e2e;
-    padding: 15px; /* Add padding for more spacing */
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    width: 250px; /* Set width for consistency */
-    margin: 10px; /* Add margin for spacing between items */
-  }
-  
-  .file-item .file-name {
-    flex-grow: 1;
-    font-size: 1.2rem; /* Increase font size for better readability */
-  }
-  
-  .icon {
-    cursor: pointer;
-    font-size: 1.5rem; /* Increase icon size */
-  }
-  
-  .folder-icon {
-    color: #ffa500;
-  }
-  
-  .file-icon {
-    color: #0a84ff;
-  }
-  
-  .edit-icon {
-    color: #4caf50;
-  }
-  
-  .delete-icon {
-    color: #f44336;
-  }
-  
-  .icon:hover {
-    opacity: 0.8;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  margin: 0;
+  padding: 0; /* Remove extra padding for cleaner layout */
+  display: flex;
+  justify-content: center; /* Center the app horizontally */
+  align-items: center; /* Center the app vertically */
+  height: 100vh; /* Full viewport height */
+}
+
+
+.file-directory {
+  max-width: 800px; /* Restrict maximum width for better central alignment */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #282828; /* Subtle background for content */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add some shadow for depth */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #fff; /* Ensure the heading stands out */
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+  text-align: left; /* Align breadcrumbs to the left for better readability */
+}
+
+.breadcrumbs span {
+  cursor: pointer;
+  color: #0a84ff;
+  font-size: 1.1rem; /* Slightly larger font for better readability */
+}
+
+.breadcrumbs span:hover {
+  text-decoration: underline;
+}
+
+.create-button,
+.back-button {
+  padding: 12px 24px;
+  margin: 10px;
+  background-color: #0a84ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem; /* Slightly larger button text */
+}
+
+.create-button:hover,
+.back-button:hover {
+  background-color: #005bb5;
+}
+
+.contents {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Add spacing between items */
+  justify-items: center; /* Center-align grid items */
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increase gap between icons and name */
+  background: #2e2e2e;
+  padding: 20px; /* Add more padding for spaciousness */
+  border-radius: 8px; /* Match parent container's rounded corners */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Slightly larger shadow for emphasis */
+  width: 100%; /* Make the items flexible */
+  max-width: 300px; /* Restrict maximum width for consistency */
+  text-align: left; /* Left-align content inside each item */
+}
+
+.file-item .file-name {
+  flex-grow: 1;
+  font-size: 1.2rem; /* Maintain larger font for readability */
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 1.5rem; /* Maintain larger icons */
+}
+
+.folder-icon {
+  color: #ffa500;
+}
+
+.file-icon {
+  color: #0a84ff;
+}
+
+.edit-icon {
+  color: #4caf50;
+}
+
+.delete-icon {
+  color: #f44336;
+}
+
+.icon:hover {
+  opacity: 0.8;
+}

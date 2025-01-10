@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getContents, createNode, deleteNode, updateNode } from "../services/api";
 import File from "./File";
-
+import '../styles/FileDirectory.css';
 
 const FileDirectory = () => {
   const [contents, setContents] = useState([]);
