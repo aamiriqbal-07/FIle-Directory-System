@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
-from app.crud import create_node, get_nodes, update_node, delete_node, migrate_node
+from app.crud import create_node, get_nodes, update_node, delete_node, migrate_node, get_nodes_recursively
 from pydantic import BaseModel
 from typing import Optional
 
@@ -14,9 +14,10 @@ def get_db():
     finally:
         db.close()
 
+from typing import Literal
 class NodeCreate(BaseModel):
     name: str
-    type: str
+    type: Literal['file', 'folder']
     parent_id: Optional[int] = None  # Allow parent_id to be optional and None
 
 class NodeUpdate(BaseModel):
@@ -29,6 +30,10 @@ class NodeMigrate(BaseModel):
 @router.get("/nodes/")
 def read_nodes(parent_id: int = None, db: Session = Depends(get_db)):
     return get_nodes(db, parent_id)
+
+@router.get("/expand-nodes/")
+def read_nodes(parent_id: int = None, db: Session = Depends(get_db)):
+    return get_nodes_recursively(db, parent_id)
 
 @router.post("/nodes/")
 def add_node(node: NodeCreate, db: Session = Depends(get_db)):

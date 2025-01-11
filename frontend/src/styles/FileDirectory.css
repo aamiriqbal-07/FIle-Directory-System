@@ -1,110 +1,192 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #1e1e1e;
-  color: #fff;
-  margin: 0;
-  padding: 0; /* Remove extra padding for cleaner layout */
+/* Main container - centers content in viewport */
+.file-directory-container {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #1a1a1a;
   display: flex;
-  justify-content: center; /* Center the app horizontally */
-  align-items: center; /* Center the app vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: center;
+  align-items: center;
 }
 
-
-.file-directory {
-  max-width: 800px; /* Restrict maximum width for better central alignment */
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-  background-color: #282828; /* Subtle background for content */
-  border-radius: 8px; /* Rounded corners for a modern look */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add some shadow for depth */
+/* Content wrapper */
+.file-directory-wrapper {
+  width: 100%;
+  max-width: 800px;
+  background-color: #0f172a;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #fff; /* Ensure the heading stands out */
+/* Header */
+.file-directory-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
 }
 
-.breadcrumbs {
-  margin-bottom: 20px;
-  text-align: left; /* Align breadcrumbs to the left for better readability */
+/* File list container */
+.file-list {
+  background-color: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.breadcrumbs span {
-  cursor: pointer;
-  color: #0a84ff;
-  font-size: 1.1rem; /* Slightly larger font for better readability */
+/* Node styles */
+.node-group {
+  position: relative;
 }
 
-.breadcrumbs span:hover {
-  text-decoration: underline;
-}
-
-.create-button,
-.back-button {
-  padding: 12px 24px;
-  margin: 10px;
-  background-color: #0a84ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem; /* Slightly larger button text */
-}
-
-.create-button:hover,
-.back-button:hover {
-  background-color: #005bb5;
-}
-
-.contents {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-  gap: 20px; /* Add spacing between items */
-  justify-items: center; /* Center-align grid items */
-}
-
-.file-item {
+.node-content {
   display: flex;
   align-items: center;
-  gap: 15px; /* Increase gap between icons and name */
-  background: #2e2e2e;
-  padding: 20px; /* Add more padding for spaciousness */
-  border-radius: 8px; /* Match parent container's rounded corners */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Slightly larger shadow for emphasis */
-  width: 100%; /* Make the items flexible */
-  max-width: 300px; /* Restrict maximum width for consistency */
-  text-align: left; /* Left-align content inside each item */
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-.file-item .file-name {
-  flex-grow: 1;
-  font-size: 1.2rem; /* Maintain larger font for readability */
+.node-content:hover {
+  background-color: rgba(55, 65, 81, 0.5);
 }
 
-.icon {
+.node-main {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Button styles */
+.node-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e5e7eb;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  font-size: 1.5rem; /* Maintain larger icons */
+  width: 100%;
 }
 
+.node-button:hover {
+  color: #ffffff;
+}
+
+/* Icons */
 .folder-icon {
-  color: #ffa500;
+  color: #60a5fa;
 }
 
 .file-icon {
-  color: #0a84ff;
+  color: #9ca3af;
 }
 
-.edit-icon {
-  color: #4caf50;
+.chevron-icon {
+  width: 16px;
+  height: 16px;
 }
 
-.delete-icon {
-  color: #f44336;
+/* Node text */
+.node-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #e5e7eb;
 }
 
-.icon:hover {
-  opacity: 0.8;
+/* Actions container */
+.node-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-left: auto;
+  padding-left: 1rem;
+}
+
+.node-group:hover .node-actions {
+  opacity: 1;
+}
+
+/* Action buttons */
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem;
+  border-radius: 4px;
+  color: #9ca3af;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background-color: rgba(75, 85, 99, 0.5);
+  color: #ffffff;
+}
+
+.action-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Children container */
+.children-container {
+  margin-left: 1.75rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .file-directory-wrapper {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .node-actions {
+    padding-left: 0.5rem;
+  }
+}
+
+/* Add these styles to your existing FileDirectory.css file */
+
+.file-directory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.root-create-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.root-create-button:hover {
+  background-color: #2563eb;
+}
+
+.root-create-button .action-icon {
+  width: 16px;
+  height: 16px;
 }
